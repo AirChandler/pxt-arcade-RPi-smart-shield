@@ -1,0 +1,15 @@
+# targets/ folder for other options
+# note that f030 is the one best-tested
+TARGET ?= f030
+
+# use -j1 or empty to disable parallel build; use -j16 or whatever if you have lots of cores
+# defaults to -j8
+#MAKE_FLAGS = -j16
+
+# Debugger selection:
+#OPENOCD ?= openocd -f interface/stlink-v2.cfg -f target/stm32f0x.cfg # STLINK - default
+#OPENOCD ?= openocd -f interface/cmsis-dap.cfg -f target/stm32f0x.cfg # CMSIS-DAP
+#BMP ?= 1  # Black Magic Probe
+
+# set to say COM3 if that's where your BMP is connected; on macOS the value is auto-detected
+#BMP_PORT = COM3
