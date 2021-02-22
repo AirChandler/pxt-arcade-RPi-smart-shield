@@ -3,27 +3,10 @@
 
 #include "jdsimple.h"
 
-#ifndef RPISCREEN
+#ifdef RPISCREEN
 
-#define PIN_DISPLAY_DC PB_6
-#define PIN_DISPLAY_CS PB_9
-#define PIN_DISPLAY_RST PB_1
-#ifdef BB_V0
-#define PIN_DISPLAY_BL -1 // PB_0
-#else
-#define PIN_DISPLAY_BL PB_0
-#endif
-
-#ifdef BB_V0
-#define DISPLAY_CFG0 0x01000080
-#else
-#define DISPLAY_CFG0 0x00000080
-#endif
-#define DISPLAY_CFG1 0x00000603
-#define DISPLAY_CFG2 32
-
-#define DISPLAY_WIDTH 160
-#define DISPLAY_HEIGHT 128
+#define DISPLAY_WIDTH 320
+#define DISPLAY_HEIGHT 240
 
 #define ST7735_NOP 0x00
 #define ST7735_SWRESET 0x01
@@ -69,26 +52,6 @@ static void transfer(void *ptr, uint32_t len) {
 
 #define DELAY 0x80
 
-// clang-format off
-static const uint8_t initCmds[] = {
-    ST7735_SWRESET,   DELAY,  //  1: Software reset, 0 args, w/delay
-      120,                    //     150 ms delay
-    ST7735_SLPOUT ,   DELAY,  //  2: Out of sleep mode, 0 args, w/delay
-      120,                    //     500 ms delay
-    ST7735_INVOFF , 0      ,  // 13: Don't invert display, no args, no delay
-    ST7735_COLMOD , 1      ,  // 15: set color mode, 1 arg, no delay:
-      0x03,                  //     12-bit color
-    ST7735_GMCTRP1, 16      , //  1: Magical unicorn dust, 16 args, no delay:
-      0x02, 0x1c, 0x07, 0x12,
-      0x37, 0x32, 0x29, 0x2d,
-      0x29, 0x25, 0x2B, 0x39,
-      0x00, 0x01, 0x03, 0x10,
-    ST7735_NORON  ,    DELAY, //  3: Normal display on, no args, w/delay
-      10,                     //     10 ms delay
-    ST7735_DISPON ,    DELAY, //  4: Main screen turn on, no args w/delay
-      10,
-    0, 0 // END
-};
 // clang-format on
 
 #define SET_DC(v) pin_set(CFG(PIN_DISPLAY_DC), v)
