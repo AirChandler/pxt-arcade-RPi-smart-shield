@@ -8,29 +8,29 @@
 #define DISPLAY_WIDTH 320
 #define DISPLAY_HEIGHT 240
 
-#define ST7735_NOP 0x00
-#define ST7735_SWRESET 0x01
-#define ST7735_SLPIN 0x10
-#define ST7735_SLPOUT 0x11
-#define ST7735_PTLON 0x12
-#define ST7735_NORON 0x13
-#define ST7735_INVOFF 0x20
-#define ST7735_INVON 0x21
-#define ST7735_DISPOFF 0x28
-#define ST7735_DISPON 0x29
-#define ST7735_CASET 0x2A
-#define ST7735_RASET 0x2B
-#define ST7735_RAMWR 0x2C
-#define ST7735_RAMRD 0x2E
-#define ST7735_PTLAR 0x30
-#define ST7735_COLMOD 0x3A
-#define ST7735_MADCTL 0x36
-#define ST7735_FRMCTR1 0xB1
-#define ST7735_INVCTR 0xB4
-#define ST7735_PWCTR6 0xFC
-#define ST7735_GMCTRP1 0xE0
-#define ST7735_GMCTRN1 0xE1
-#define ST7735_RGBSET 0x2D
+#define RPI_NOP 0x00
+#define RPI_SWRESET 0x01
+#define RPI_SLPIN 0x10
+#define RPI_SLPOUT 0x11
+#define RPI_PTLON 0x12
+#define RPI_NORON 0x13
+#define RPI_INVOFF 0x20
+#define RPI_INVON 0x21
+#define RPI_DISPOFF 0x28
+#define RPI_DISPON 0x29
+#define RPI_CASET 0x2A
+#define RPI_RASET 0x2B
+#define RPI_RAMWR 0x2C
+#define RPI_RAMRD 0x2E
+#define RPI_PTLAR 0x30
+#define RPI_COLMOD 0x3A
+#define RPI_MADCTL 0x36
+#define RPI_FRMCTR1 0xB1
+#define RPI_INVCTR 0xB4
+#define RPI_PWCTR6 0xFC
+#define RPI_GMCTRP1 0xE0
+#define RPI_GMCTRN1 0xE1
+#define RPI_RGBSET 0x2D
 
 #define CFG(x) x
 
@@ -120,7 +120,7 @@ static void startRAMWR(uint8_t cmd) {
 }
 
 void screen_sleep() {
-    cmdBuf[0] = ST7735_SLPIN;
+    cmdBuf[0] = RPI_SLPIN;
     sendCmd(cmdBuf, 1);
 }
 
@@ -136,7 +136,7 @@ void screen_send_palette(const uint32_t *palette) {
         base[i + 32] = (palette[i] >> 10) & 0x3f;
         base[i + 32 + 64] = (palette[i] >> 2) & 0x3f;
     }
-    startRAMWR(ST7735_RGBSET);
+    startRAMWR(RPI_RGBSET);
     transfer(dataBuf, 128);
     SET_CS(1);
 }
@@ -189,7 +189,7 @@ static const uint32_t palette[] = {
 void screen_stripes() {
     static uint32_t line[64 / 4];
     screen_send_palette(palette);
-    startRAMWR(ST7735_RAMWR);
+    startRPI(RPI_RAMWR);
     for (int i = 0; i < 16; ++i) {
         memset(line, 0x11 * i, sizeof(line));
         for (int j = 0; j < 10; ++j)
@@ -229,7 +229,7 @@ void screen_init() {
     setAddrWindow(offX, offY, CFG(DISPLAY_WIDTH), CFG(DISPLAY_HEIGHT));
 
     if (cfg0 & 0x1000000) {
-        cmdBuf[0] = ST7735_INVON;
+        cmdBuf[0] = RPI_INVON;
         sendCmd(cmdBuf, 1);
     }
 }
