@@ -1,0 +1,37 @@
+Altium Designer Pick and Place Locations
+C:\Dev\MSR\SenDev\Projects\Arcade\Altium\ArcadeRpiSmartShield\.\ArcadeRpiSmartShield 33-1.0\Pick Place\ArcadeRpiSmartShield 33-1.0.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       04/03/21
+Time:       23:42
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mm
+
+"Designator","Layer","Center-X(mm)","Center-Y(mm)","Rotation"
+"C1","TopLayer","40.2250","29.7750","360"
+"C2","TopLayer","34.0250","32.6250","270"
+"C3","TopLayer","44.8000","37.6500","90"
+"D1","TopLayer","40.7500","26.3000","90"
+"D2","TopLayer","43.9300","47.4950","90"
+"D3","TopLayer","42.1750","26.3000","90"
+"J1","TopLayer","32.5000","10.0000","180"
+"J2","TopLayer","25.3750","40.1500","180"
+"J3","BottomLayer","33.0860","40.5800","360"
+"J4","BottomLayer","32.5000","52.5000","180"
+"J5","TopLayer","9.2750","32.3250","270"
+"R1","TopLayer","40.7500","15.6250","270"
+"R2","TopLayer","33.6000","34.3500","0"
+"R3","TopLayer","40.7750","24.1500","90"
+"R4","TopLayer","43.9500","45.1500","90"
+"R5","TopLayer","12.1250","38.9750","270"
+"R6","TopLayer","12.1250","40.6500","90"
+"R7","TopLayer","12.1500","35.7250","90"
+"R8","TopLayer","12.1500","34.0750","270"
+"R9","TopLayer","12.1539","30.8222","90"
+"R10","TopLayer","12.1500","29.0750","270"
+"R11","TopLayer","12.1000","25.6000","90"
+"R12","TopLayer","42.1750","24.1500","90"
+"U1","TopLayer","39.4250","35.1000","90"

@@ -4,24 +4,7 @@
 #include "jdsimple.h"
 #include "jdspi.h"
 
-#ifdef PSCREEN
-#define PIN_LOG1 PA_12
-#else
-#define PIN_LOG1 PA_9
-#endif
 
-#ifdef BB_V1
-#define PIN_LED PC_6
-#define PIN_LOG0 PC_14
-#elif defined(PROTO_V2)
-#define PIN_LED PB_14
-#define PIN_LOG0 PB_12
-#undef PIN_LOG1
-#define PIN_LOG1 PB_13
-#else
-#define PIN_LED PC_6
-#define PIN_LOG0 PA_10
-#endif
 
 void led_init() {
     pin_setup_output(PIN_LOG0);
@@ -49,7 +32,6 @@ void pulse_log_pin2() {
 
 void led_toggle() {
     pin_toggle(PIN_LED);
-    pin_toggle(PC_8);
 }
 
 void led_set(int state) {
@@ -63,8 +45,10 @@ static void tick() {
     tim_set_timer(10000, tick);
 }
 
+void screen_stripes(void);
+
 void show_test_screen(void) {
-    screen_set_backlight(255);
+  screen_set_backlight(255);
     screen_stripes();
     while(1);
 }
@@ -72,12 +56,16 @@ void show_test_screen(void) {
 int main(void) {
     jdspi_early_init();
     led_init();
+
     tim_init();
+    // dspi_init();
     adc_init_random();
+
     tick();
+
     jdspi_init();
 
-    //show_test_screen();
+    // show_test_screen();
 
     uint64_t lastBlink = tim_get_micros();
     while (1) {

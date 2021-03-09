@@ -3,7 +3,7 @@
 
 #include "jdsimple.h"
 
-#ifdef SPIu2
+#ifdef SPI2
 
 #define SPI_IDX 2
 

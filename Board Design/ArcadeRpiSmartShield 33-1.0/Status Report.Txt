@@ -1,0 +1,20 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 11:44:17 PM On 3/4/2021
+
+Output: Backup Altium source
+Type  : Copy Files
+From  : Project [ArcadeRpiSmartShield 33.PrjPCB]
+   Generated File[ArcadeRpiSmartShield 33 MCU.SchDoc]
+   Generated File[ArcadeRpiSmartShield 33 Pi interface.SchDoc]
+   Generated File[ArcadeRpiSmartShield 33.OutJob]
+   Generated File[ArcadeRpiSmartShield 33.PcbDoc]
+   Generated File[ArcadeRpiSmartShield 33.PrjPCB]
+   Generated File[ArcadeRpiSmartShield 33.PrjPCBStructure]
+   Generated File[Status Report.Txt]
+
+
+Files Generated   : 7
+Documents Printed : 0
+
+Finished Output Generation At 11:44:17 PM On 3/4/2021

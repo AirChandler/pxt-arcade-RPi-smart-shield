@@ -3,7 +3,7 @@
 
 #include "jdsimple.h"
 
-#ifndef PSCREEN & RPISCREEN
+#ifndef PSCREEN
 
 #define PIN_DISPLAY_DC PB_6
 #define PIN_DISPLAY_CS PB_9
