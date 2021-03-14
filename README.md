@@ -63,6 +63,11 @@ Other than the building/deployment targets, the following might be of note:
 * `make gdb` - run GDB debugger
 * `make clean` - clean (duh!)
 
+## JACDAC Protol
+
+Read more on jacdac protol implementation specification here:
+https://microsoft.github.io/jacdac-docs/reference/protocol/
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
