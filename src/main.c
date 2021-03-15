@@ -3,7 +3,7 @@
 
 #include "jdsimple.h"
 #include "jdspi.h"
-
+#include "rpi_flow.h"
 
 
 void led_init() {
@@ -40,7 +40,7 @@ void led_set(int state) {
 
 // uint8_t crcBuf[1024];
 
-static void tick() {
+void tick() {
     // pulse_log_pin();
     tim_set_timer(10000, tick);
 }
@@ -54,15 +54,14 @@ void show_test_screen(void) {
 }
 
 int main(void) {
-    jdspi_early_init();
+    rpiHandler();
+    /*jdspi_early_init();
     led_init();
 
     tim_init();
     // dspi_init();
     adc_init_random();
-
     tick();
-
     jdspi_init();
 
     // show_test_screen();
@@ -73,9 +72,8 @@ int main(void) {
             lastBlink = tim_get_micros();
             led_toggle();
         }
-
         jdspi_process();
-    }
+    }*/
 }
 
 void panic(void) {

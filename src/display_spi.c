@@ -139,7 +139,7 @@ void IRQHandler(void) {
     DMESG("SPI handler!");
 }
 
-void DMA_Handler(void) {
+/*void DMA_Handler(void) {
     // uint32_t isr = DMA1->ISR;
 
     DMA_ClearFlag(DMA1);
@@ -159,6 +159,6 @@ void DMA_Handler(void) {
         doneH = NULL;
         f();
     }
-}
+}*/
 
 #endif // SPI2
