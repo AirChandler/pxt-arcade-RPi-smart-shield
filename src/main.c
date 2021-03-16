@@ -54,13 +54,17 @@ void show_test_screen(void) {
 }
 
 int main(void) {
-    rpiHandler();
-    /*jdspi_early_init();
-    led_init();
 
+    jdspi_early_init();
+    led_init();
     tim_init();
-    // dspi_init();
     adc_init_random();
+    rpiHandler();
+    while(1){
+        //poll
+    }
+    /*
+    // dspi_init();
     tick();
     jdspi_init();
 

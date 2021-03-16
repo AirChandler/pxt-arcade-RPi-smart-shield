@@ -18,8 +18,9 @@ void setupDMA(){
 
 void setupSPI(){
 
-    __HAL_RCC_SPI2_CLK_ENABLE();
-    __HAL_RCC_GPIOB_CLK_ENABLE();
+    /* Peripheral clock enable */
+    LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_SPI2);
+    LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOB);
 
     LL_SPI_InitTypeDef SPI_InitStruct = {0};
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};

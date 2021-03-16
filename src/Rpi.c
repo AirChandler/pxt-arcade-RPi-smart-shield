@@ -8,10 +8,10 @@ static inline bool DMA_HasFlag(DMA_TypeDef *DMAx, uint8_t ch, uint8_t flag) {
 }
 
 void rpiHandler(){
-    //Init SPI2
-    setupSPI();
     //Init DMA channels
     setupDMA();
+    //Init SPI2
+    setupSPI();
     //Handle Interrupts
     //Call on Display input & Sound
     //Call on controller receive
